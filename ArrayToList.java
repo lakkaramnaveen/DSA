@@ -17,11 +17,24 @@ public class ArrayToList {
         // never tamper the head
         }
         System.err.println("length is "+counter);
+
+        System.err.println(checkIfElementExist(head, 5));
+        
     }
 
     public static void creatLinkedList(){
         Node l1 = new Node(10, new Node(23, null));
         System.out.println(l1.data);
+    }
+
+    public static boolean checkIfElementExist(Node head, int given){
+        while (head != null) {
+            if (head.data == given){
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
     }
     
     public static Node convertArrayToList(int[] arr){
