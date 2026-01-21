@@ -1,12 +1,22 @@
 public class ArrayToList {
     public static void main(String[] args) {
-        creatLinkedList();
+        // creatLinkedList();
         int[] arr = {2,3,4,5};
-        Node n = convertArrayToList(arr);
-        while (n != null) {
-            System.out.println(n.data);
-            n = n.next;
+        Node head = convertArrayToList(arr);
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        // never tamper the head
         }
+        int counter = 0;
+        temp = head;
+        while (temp != null) {
+            counter++;
+            temp = temp.next;
+        // never tamper the head
+        }
+        System.err.println("length is "+counter);
     }
 
     public static void creatLinkedList(){
