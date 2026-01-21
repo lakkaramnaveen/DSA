@@ -1,4 +1,4 @@
-class arrays{
+public class Arrays{
     public static void main(String[] args) {
         int[] marks = new int[3];
         marks[0] = 21;
@@ -9,5 +9,7 @@ class arrays{
         }
     }
 }
+
+// browser tab example is a double linkedin list as back tracking?
 
 
