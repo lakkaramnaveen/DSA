@@ -19,12 +19,43 @@ public class ArrayToList {
         System.err.println("length is "+counter);
 
         System.err.println(checkIfElementExist(head, 5));
-        
+
+        Node updatedListHead = insertElementList(head, 21);
+        Node temp1 = updatedListHead;
+        while (temp1 != null) {
+            System.out.println(temp1.data);
+            temp1 = temp1.next;
+        // never tamper the head
+        }
+
+        System.err.println(deleteElementList(head, 21));
     }
 
     public static void creatLinkedList(){
         Node l1 = new Node(10, new Node(23, null));
         System.out.println(l1.data);
+    }
+
+    public static Node insertElementList(Node head, int number){
+        Node new1 = new Node(number);
+        Node temp = head;
+        while (temp.next!=null) { 
+            temp = temp.next;
+        }
+        temp.next = new1;
+        return head;
+    }
+
+    public static boolean deleteElementList(Node head, int number){
+        Node temp = head;
+         while (temp.next!=null) { 
+            if (temp.data == number){
+                temp = temp.next.next;
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
     }
 
     public static boolean checkIfElementExist(Node head, int given){
@@ -51,6 +82,8 @@ public class ArrayToList {
     }
 
 }
+
+
 
 class Node {
 
