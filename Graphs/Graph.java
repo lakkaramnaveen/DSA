@@ -30,7 +30,53 @@ public class Graph {
         }
     }
 
+    public void removeEdge(Vertex vertex1, Vertex vertex2){
+        vertex1.removeEdge(vertex2);
+        if (!this.isDirected) {
+            vertex2.removeEdge(vertex1);
+        }
+    }
+
+    public void removeVertex(Vertex vertex){
+        this.vertices.remove(vertex);
+    }
+
+    public ArrayList<Vertex> getVertices(){
+        return this.vertices;
+    }
+
+    public boolean isWeighted(){
+        return this.isWeighted;
+    }
+
+    public boolean isDirected(){
+        return this.isDirected;
+    }
+
+    public Vertex getVertexByValue(String value){
+        for (Vertex v : this.vertices) {
+            if (v.getData() == value) {
+                return v;
+            }
+        }
+        return null;
+    }
+
+    public void print(){
+        for (Vertex v : this.vertices) {
+            v.print(isWeighted);
+        }
+    }
+
     public static void main(String[] args) {
-        
+        Graph busNetwork = new Graph(true, true);
+
+        Vertex stLouisStation = busNetwork.addVertex("St louis");
+        Vertex arkansasStation = busNetwork.addVertex("Arkansas");
+
+        busNetwork.addEdge(stLouisStation, arkansasStation, 200);
+
+        busNetwork.print();
+
     }
 }
